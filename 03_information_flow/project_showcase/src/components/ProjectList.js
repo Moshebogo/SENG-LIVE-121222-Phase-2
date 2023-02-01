@@ -1,8 +1,8 @@
 import ProjectListItem from "./ProjectListItem";
 import { useState } from "react";
 
-const ProjectList = ({ projects }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+const ProjectList = ({ projects, searchQuery, setSearchQuery }) => {
+
 
   const searchResults = projects.filter((project) => {
     return project.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -22,7 +22,7 @@ const ProjectList = ({ projects }) => {
     // the `App` component
 
     // - Using inverse data flow, get the value of the 
-    // input field UP to the App component
+    // input field UP to the App component  
 
     // - Write a callback function inside the App 
     // component:

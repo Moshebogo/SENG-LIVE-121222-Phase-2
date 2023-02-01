@@ -1,7 +1,6 @@
 import { useState } from "react";
 
-const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+const Header = ({isDarkMode, setIsDarkMode}) => {
 
   const handleClick = () => setIsDarkMode(!isDarkMode);
 
