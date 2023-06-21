@@ -17,6 +17,7 @@
   // component
 
   import { useState, useEffect } from "react";
+  import { Switch, Route } from  "react-router-dom"
 
   import Header from "./components/Header";
   import ProjectForm from "./components/ProjectForm";
@@ -64,14 +65,31 @@
     return (
       <div className={isDarkMode ? "App" : "App light"}>
         <Header isDarkMode={isDarkMode} onToggleDarkMode={onToggleDarkMode} />
-        <Home />
-        <ProjectList
-          projects={projects}
-          onDeleteProject={onDeleteProject}
-        />
-        <ProjectEditForm onUpdateProject={onUpdateProject} />
-        <ProjectForm onAddProject={onAddProject} />
-        {/* <ProjectDetail /> */}
+
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+
+          <Route exact path="/projects">
+          <ProjectList
+            projects={projects}
+            onDeleteProject={onDeleteProject}
+          />
+          </Route>
+          
+          <Route path="/projects/:id/edit">
+           <ProjectEditForm onUpdateProject={onUpdateProject} />
+          </Route>
+
+          <Route path="/projects/new">
+           <ProjectForm onAddProject={onAddProject} />
+           </Route> 
+
+          <Route path="/projects/:id">
+           {/* <ProjectDetail /> */}
+          </Route> 
+        </Switch>
       </div>
     );
   };

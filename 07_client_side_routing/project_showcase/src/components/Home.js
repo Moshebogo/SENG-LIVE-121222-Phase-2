@@ -2,6 +2,7 @@
 // component
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom"
 
 const Home = () => {
   const [recentProjects, setRecentProjects] = useState([]);
@@ -27,9 +28,9 @@ const Home = () => {
         <p key={project.id}>{project.name}</p>
       ))}
       <div style={{ margin: "1rem 0" }}>
-        <a className="button" href="/projects">
-          View All Projects
-        </a>
+        <Link className="button" href="/projects" >
+          View All Projects  
+        </Link>
       </div>
     </section>
   );
